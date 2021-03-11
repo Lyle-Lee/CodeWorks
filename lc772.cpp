@@ -40,10 +40,10 @@ public:
             sig_stk.pop();
             suffix.push_back(sign);
         }
-        for (string x : suffix) std::cout << x << ' ';
-        std::cout << std::endl;
-        //return evalRPN(suffix);
-        return 0;
+        //for (string x : suffix) std::cout << x << ' ';
+        //std::cout << std::endl;
+        return evalRPN(suffix);
+        //return 0;
     }
 
     int evalRPN(vector<string>& tokens) {
