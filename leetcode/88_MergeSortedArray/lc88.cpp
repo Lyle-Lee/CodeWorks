@@ -1,7 +1,7 @@
 class Solution {
 public:
     void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
-        if (n == 0) return;
+        //if (n == 0) return;
         while (m >= 0 || n > 0) {
             if (m == 0) {
                 while (n) {
