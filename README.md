@@ -1,2 +1,2 @@
-# CodeWorks
-Exercises on LeetCode and others
+## CodeWorks
+Exercises and Contests
