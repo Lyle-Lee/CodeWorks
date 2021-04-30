@@ -15,7 +15,7 @@ public:
         //}
         //return ans;
         int a = 0, b = 0;
-        for (int num: nums) {
+        for (int num: nums) { // digital circuits
             b = ~a & (b ^ num);
             a = ~b & (a ^ num);
         }
