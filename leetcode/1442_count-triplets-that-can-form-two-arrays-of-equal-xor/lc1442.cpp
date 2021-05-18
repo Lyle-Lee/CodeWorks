@@ -14,13 +14,12 @@ public:
         //}
         unordered_map<int, int> cnt, total;
         int preXOR = 0;
-        for (int i = 0; i <= n; ++i) {
-            if (cnt[preXOR]) ans += cnt[preXOR] * (i - 1) - total[preXOR]; // i - 1 here is k (index)
+        for (int i = 0; i < n; ++i) {
+            int val = arr[i];
+            if (cnt[preXOR ^ val]) ans += cnt[preXOR ^ val] * i - total[preXOR ^ val]; // i here is 'k'
             ++cnt[preXOR]; // num of appearance of the same preXOR
-            if (i < n) {
-                total[preXOR] += i; // sum of index of the same preXOR
-                preXOR ^= arr[i];
-            }
+            total[preXOR] += i; // sum of index of the same preXOR
+            preXOR ^= val;
         }
         return ans;
     }
