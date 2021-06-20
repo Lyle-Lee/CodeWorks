@@ -15,18 +15,30 @@ public:
         dead.insert(name);
     }
     
-    void preOrder(string name, vector<string>& ans) {
-        if (!dead.count(name)) ans.push_back(name);
-        if (family.count(name)) {
-            for (auto &cName: family[name]) {
-                preOrder(cName, ans);
-            }
-        }
-    }
+    // void preOrder(string name, vector<string>& ans) {
+    //     if (!dead.count(name)) ans.push_back(name);
+    //     if (family.count(name)) {
+    //         for (auto &cName: family[name]) {
+    //             preOrder(cName, ans);
+    //         }
+    //     }
+    // }
 
     vector<string> getInheritanceOrder() {
         vector<string> ans;
-        preOrder(king, ans);
+        // preOrder(king, ans);
+        stack<string> stk;
+        stk.push(king);
+        while (!stk.empty()) {
+            string tmp = stk.top();
+            stk.pop();
+            if (!dead.count(tmp)) ans.push_back(tmp);
+            if (family.count(tmp)) {
+                for (auto iter = family[tmp].rbegin(); iter != family[tmp].rend(); ++iter) {
+                    stk.push(*iter);
+                }
+            }
+        }
         return ans;
     }
 };
