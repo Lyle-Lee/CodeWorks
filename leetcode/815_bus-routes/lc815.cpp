@@ -15,6 +15,7 @@ public:
                 // unionFind(s, routes[i][0]);
             }
         }
+        if(!stations.count(source) || !stations.count(target)) return -1;
         // if (!query(source, target)) return -1;
         queue<int> q1, q2;
         unordered_map<int, int> map1, map2;
